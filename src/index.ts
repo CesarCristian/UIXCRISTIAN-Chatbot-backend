@@ -103,24 +103,7 @@ app.post('/api/chat', async (req: Request, res: Response): Promise<void> => {
     if (lastError && !responseText) {
       // If free quota is temporarily exhausted from rapid testing, provide reliable academic fallback
       const msgLower = (message || '').toLowerCase();
-      if (msgLower.includes('semana 1') || msgLower.includes('primera semana') || msgLower.includes('hago')) {
-        responseText = `Para la **Semana 1**, las actividades principales son:
-
-1. **Revisar y actualizar el aula virtual:**
-   Consiste en actualizar y preparar el aula virtual para el inicio de clases.
-
-2. **Registrar los delegados de asignatura:**
-   Consiste en registrar en la Intranet Docente a los delegados elegidos para cada asignatura.
-
-3. **Aplicar la prueba de entrada:**
-   Consiste en la aplicación de la evaluación diagnóstica a los estudiantes en la primera sesión.
-
-4. **Publicar las sesiones de clase y materiales correspondientes:**
-   Consiste en subir las diapositivas, guías y materiales del curso correspondientes a la semana en curso.
-
-5. **Mantener actualizado el aula virtual con sesiones, materiales y actividades de aprendizaje:**
-   Consiste en mantener al día el aula virtual agregando las sesiones, materiales didácticos y actividades planificadas.`;
-      } else if (msgLower.includes('1 al 4') || msgLower.includes('1 a 4') || msgLower.includes('segunda') || msgLower.includes('intranet')) {
+      if (msgLower.includes('1 al 4') || msgLower.includes('1 a 4') || msgLower.includes('1 hasta la 4') || msgLower.includes('1 hasta 4') || msgLower.includes('semana 4') || msgLower.includes('segunda') || msgLower.includes('intranet')) {
         responseText = `Para las **Semanas 1 al 4**, las actividades principales son:
 
 1. **Mantener actualizado el aula virtual con sesiones, materiales y actividades de aprendizaje:**
@@ -137,6 +120,23 @@ app.post('/api/chat', async (req: Request, res: Response): Promise<void> => {
 
 5. **Publicar la nota de la primera evaluación continua 1:**
    Consiste en subir y publicar la calificación correspondiente a la evaluación continua 1 de los estudiantes.`;
+      } else if (msgLower.includes('semana 1') || msgLower.includes('primera semana') || msgLower.includes('hago')) {
+        responseText = `Para la **Semana 1**, las actividades principales son:
+
+1. **Revisar y actualizar el aula virtual:**
+   Consiste en actualizar y preparar el aula virtual para el inicio de clases.
+
+2. **Registrar los delegados de asignatura:**
+   Consiste en registrar en la Intranet Docente a los delegados elegidos para cada asignatura.
+
+3. **Aplicar la prueba de entrada:**
+   Consiste en la aplicación de la evaluación diagnóstica a los estudiantes en la primera sesión.
+
+4. **Publicar las sesiones de clase y materiales correspondientes:**
+   Consiste en subir las diapositivas, guías y materiales del curso correspondientes a la semana en curso.
+
+5. **Mantener actualizado el aula virtual con sesiones, materiales y actividades de aprendizaje:**
+   Consiste en mantener al día el aula virtual agregando las sesiones, materiales didácticos y actividades planificadas.`;
       } else if (msgLower.includes('semana 5') || msgLower.includes('parcial')) {
         responseText = `Para la **Semana 5**, las actividades principales son:
 
